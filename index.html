@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080a08">
+  <meta name="description" content="MAZNEX — Yassine Mazouar's technology portfolio. IT support, operating systems, PC hardware, networking, and hands-on troubleshooting.">
+  <title>MAZNEX — Yassine Mazouar | Technology Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#080a08; --panel:#101310; --panel2:#151a14; --text:#f0f3eb; --muted:#9aa194; --green:#a8ff00; --line:#293020; --mono:'DM Mono',monospace; --sans:'Space Grotesk',sans-serif; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:var(--sans); line-height:1.6; }
+    a { color:inherit; text-decoration:none; }
+    a:focus-visible, button:focus-visible { outline:2px solid var(--green); outline-offset:4px; }
+    .wrap { width:min(1120px, calc(100% - 40px)); margin:auto; }
+    .topline { height:4px; background:var(--green); }
+    header { position:sticky; top:0; z-index:10; background:rgba(8,10,8,.88); backdrop-filter:blur(14px); border-bottom:1px solid rgba(168,255,0,.12); }
+    nav { display:flex; align-items:center; justify-content:space-between; min-height:76px; gap:24px; }
+    .brand { font-weight:700; letter-spacing:.12em; font-size:1.25rem; }
+    .brand span { color:var(--green); }
+    .navlinks { display:flex; gap:26px; color:var(--muted); font-size:.9rem; }
+    .navlinks a:hover { color:var(--green); }
+    .nav-cta { border:1px solid var(--green); color:var(--green); padding:10px 14px; font-family:var(--mono); font-size:.75rem; letter-spacing:.06em; }
+    .hero { min-height:660px; display:grid; grid-template-columns:1.1fr .9fr; align-items:center; gap:50px; padding:76px 0 88px; }
+    .eyebrow { color:var(--green); font:500 .75rem var(--mono); letter-spacing:.17em; text-transform:uppercase; }
+    h1 { font-size:clamp(3.4rem, 8vw, 7rem); line-height:.92; letter-spacing:-.075em; margin:22px 0; }
+    h1 .green { color:var(--green); }
+    .hero p { max-width:570px; color:#b6beb0; font-size:1.1rem; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:32px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; padding:13px 18px; border:1px solid var(--line); font-weight:600; font-size:.9rem; transition:.2s; }
+    .btn.primary { background:var(--green); color:#090b07; border-color:var(--green); }
+    .btn:hover { transform:translateY(-2px); border-color:var(--green); }
+    .hero-art { position:relative; border:1px solid var(--line); background:linear-gradient(145deg,#11160e,#080a08 70%); padding:18px; }
+    .hero-art:before { content:""; position:absolute; width:90px; height:90px; right:-8px; top:-8px; border-top:2px solid var(--green); border-right:2px solid var(--green); }
+    .hero-art img { display:block; width:100%; height:auto; filter:saturate(.92); }
+    .art-label { display:flex; justify-content:space-between; gap:10px; color:var(--muted); font: .68rem var(--mono); margin-top:12px; letter-spacing:.08em; }
+    section { padding:88px 0; border-top:1px solid #1a2016; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:25px; margin-bottom:32px; }
+    .section-head h2 { font-size:clamp(2rem,4vw,3.5rem); letter-spacing:-.055em; line-height:1; margin:10px 0 0; }
+    .section-head p { color:var(--muted); max-width:400px; margin:0; }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .panel { background:var(--panel); border:1px solid var(--line); padding:28px; }
+    .panel h3 { margin:0 0 12px; font-size:1.2rem; }
+    .panel p { margin:0; color:var(--muted); }
+    .small-label { font: .7rem var(--mono); color:var(--green); letter-spacing:.12em; text-transform:uppercase; margin-bottom:14px; display:block; }
+    .skills { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .skill { border:1px solid var(--line); background:var(--panel); padding:20px; min-height:145px; }
+    .skill .num { color:var(--green); font: .72rem var(--mono); }
+    .skill h3 { margin:18px 0 6px; font-size:1.05rem; }
+    .skill p { color:var(--muted); margin:0; font-size:.88rem; }
+    .projects { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .project { display:flex; flex-direction:column; min-height:275px; background:var(--panel); border:1px solid var(--line); padding:24px; transition:.2s; }
+    .project:hover { border-color:var(--green); transform:translateY(-3px); }
+    .project-top { display:flex; justify-content:space-between; align-items:center; color:var(--green); font: .7rem var(--mono); }
+    .project h3 { font-size:1.25rem; line-height:1.2; margin:28px 0 12px; }
+    .project p { color:var(--muted); font-size:.92rem; margin:0 0 20px; }
+    .tag { margin-top:auto; padding-top:15px; border-top:1px solid var(--line); color:#d0d7c8; font: .68rem var(--mono); }
+    .note { border-left:2px solid var(--green); padding:14px 18px; color:var(--muted); background:#0d100b; font-size:.88rem; margin-top:20px; }
+    .approach { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .step { padding:22px 0; border-top:1px solid var(--green); }
+    .step .n { font: .75rem var(--mono); color:var(--green); }
+    .step h3 { margin:14px 0 8px; }
+    .step p { color:var(--muted); margin:0; }
+    .contact-box { display:flex; justify-content:space-between; align-items:center; gap:35px; border:1px solid var(--green); padding:clamp(25px,5vw,55px); background:linear-gradient(120deg,rgba(168,255,0,.08),transparent 55%); }
+    .contact-box h2 { font-size:clamp(2.2rem,5vw,4rem); line-height:1; letter-spacing:-.06em; margin:10px 0 14px; }
+    .contact-box p { color:var(--muted); margin:0; max-width:480px; }
+    .contact-links { display:flex; flex-direction:column; gap:10px; min-width:190px; }
+    .contact-links a { padding:11px 13px; border:1px solid var(--line); font: .78rem var(--mono); }
+    .contact-links a:hover { border-color:var(--green); color:var(--green); }
+    footer { padding:26px 0; color:var(--muted); font: .72rem var(--mono); }
+    .footer-inner { display:flex; justify-content:space-between; gap:20px; }
+    .green { color:var(--green); }
+    @media(max-width:800px) {
+      .navlinks { display:none; }
+      .hero { grid-template-columns:1fr; padding-top:65px; gap:35px; min-height:auto; }
+      .hero-art { max-width:520px; }
+      .about-grid { grid-template-columns:1fr; }
+      .skills { grid-template-columns:repeat(2,1fr); }
+      .projects { grid-template-columns:1fr; }
+      .project { min-height:220px; }
+      .section-head { align-items:start; flex-direction:column; }
+      .contact-box { align-items:flex-start; flex-direction:column; }
+      .contact-links { width:100%; }
+    }
+    @media(max-width:480px) {
+      .wrap { width:min(100% - 28px,1120px); }
+      nav { min-height:66px; }
+      .nav-cta { padding:9px 10px; font-size:.66rem; }
+      .skills { grid-template-columns:1fr; }
+      section { padding:65px 0; }
+      .footer-inner { flex-direction:column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topline"></div>
+  <header>
+    <nav class="wrap">
+      <a class="brand" href="#home">MAZ<span>NEX</span></a>
+      <div class="navlinks">
+        <a href="#about">About</a><a href="#skills">Focus</a><a href="#projects">Projects</a><a href="#approach">Approach</a>
+      </div>
+      <a class="nav-cta" href="#contact">LET'S CONNECT ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="home" style="border-top:0">
+      <div>
+        <div class="eyebrow">Technology • Systems • Troubleshooting</div>
+        <h1>BUILD<br>QUIETLY.<br><span class="green">THINK</span><br>FORWARD.</h1>
+        <p>I'm Yassine Mazouar — a technology trainee building practical skills across operating systems, PC hardware, networking, and IT support. I learn by testing, troubleshooting, documenting, and improving.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">Explore my work ↘</a>
+          <a class="btn" href="https://github.com/LeaderEthan" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="maznex-logo.png" alt="MAZNEX logo in acid green on black">
+        <div class="art-label"><span>INDEPENDENT LEARNING</span><span>SYS. / TECH. / BUILD.</span></div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">01 / About</div><h2>Curious by nature.<br>Practical by choice.</h2></div>
+          <p>My focus is understanding how technology works beneath the surface — and learning to solve real problems one step at a time.</p>
+        </div>
+        <div class="about-grid">
+          <div class="panel">
+            <span class="small-label">Current direction</span>
+            <h3>Building a strong technical foundation</h3>
+            <p>Exploring system installation, hardware setup, network basics, and practical IT troubleshooting. I value clear notes, repeatable steps, and learning from failed attempts as much as successful ones.</p>
+          </div>
+          <div class="panel">
+            <span class="small-label">Working principles</span>
+            <h3>Test. Understand. Document.</h3>
+            <p>I prefer hands-on practice over empty claims. This portfolio highlights learning projects and technical experiments, with room to add verified outcomes as my experience grows.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">02 / Technical focus</div><h2>Areas I'm developing.</h2></div>
+          <p>A practical foundation, growing through experimentation and consistent learning.</p>
+        </div>
+        <div class="skills">
+          <article class="skill"><div class="num">01 / SYSTEMS</div><h3>Operating Systems</h3><p>OS installation experiments, boot media, disk partitions, and setup troubleshooting.</p></article>
+          <article class="skill"><div class="num">02 / HARDWARE</div><h3>PC Hardware</h3><p>Storage devices, component basics, hardware checks, and diagnosing startup issues.</p></article>
+          <article class="skill"><div class="num">03 / NETWORKS</div><h3>Networking</h3><p>Learning network fundamentals and working through connectivity problems.</p></article>
+          <article class="skill"><div class="num">04 / SUPPORT</div><h3>IT Troubleshooting</h3><p>Breaking problems into steps, checking symptoms, and testing safe solutions.</p></article>
+          <article class="skill"><div class="num">05 / WEB</div><h3>Web & GitHub</h3><p>Building a personal web presence and learning to publish projects online.</p></article>
+          <article class="skill"><div class="num">06 / METHOD</div><h3>Technical Notes</h3><p>Recording steps, observations, errors, and lessons learned for future reference.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">03 / Selected practice</div><h2>Learning through doing.</h2></div>
+          <p>Hands-on exercises and personal work. These are presented as practice projects, not commercial deployments.</p>
+        </div>
+        <div class="projects">
+          <article class="project">
+            <div class="project-top"><span>LAB / 001</span><span>↗</span></div>
+            <h3>Operating System Installation Lab</h3>
+            <p>Practicing installation workflows, bootable media concepts, storage preparation, and diagnosing disk or boot-related errors.</p>
+            <div class="tag">OS INSTALLATION · STORAGE · BOOT</div>
+          </article>
+          <article class="project">
+            <div class="project-top"><span>LAB / 002</span><span>↗</span></div>
+            <h3>PC & Storage Troubleshooting</h3>
+            <p>Exploring common PC issues involving SSDs, disk formats, startup behavior, and structured fault isolation.</p>
+            <div class="tag">HARDWARE · DISKS · DIAGNOSTICS</div>
+          </article>
+          <article class="project">
+            <div class="project-top"><span>LAB / 003</span><span>↗</span></div>
+            <h3>Personal Portfolio & Web Presence</h3>
+            <p>Developing a branded portfolio experience and learning the workflow for publishing web projects with GitHub.</p>
+            <div class="tag">HTML · CSS · GITHUB PAGES</div>
+          </article>
+        </div>
+        <div class="note">Next step: add a GitHub repository link, screenshots, the exact problem, your solution, and what you learned to each project as the work is documented.</div>
+      </div>
+    </section>
+
+    <section id="approach">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">04 / Approach</div><h2>A repeatable process.</h2></div>
+          <p>Good technical work is not guesswork. It's a disciplined process.</p>
+        </div>
+        <div class="approach">
+          <article class="step"><div class="n">STEP 01</div><h3>Observe</h3><p>Understand the symptoms, context, and constraints before changing anything.</p></article>
+          <article class="step"><div class="n">STEP 02</div><h3>Test</h3><p>Try focused, reversible checks and use the results to narrow down the cause.</p></article>
+          <article class="step"><div class="n">STEP 03</div><h3>Document</h3><p>Record what worked, what failed, and what to improve next time.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-box">
+          <div>
+            <div class="eyebrow">05 / Contact</div>
+            <h2>Let's build<br><span class="green">what's next.</span></h2>
+            <p>Open to learning, collaboration, and conversations around technology, systems, and practical problem-solving.</p>
+          </div>
+          <div class="contact-links">
+            <a href="mailto:trojanx207@gmail.com">EMAIL ↗</a>
+            <a href="https://github.com/LeaderEthan" target="_blank" rel="noopener noreferrer">GITHUB ↗</a>
+            <a href="https://www.linkedin.com/in/yassine-mazouar/" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a>
+            <a href="https://www.instagram.com/mazouar.yassine05/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner"><span>© <span id="year">2026</span> MAZNEX / YASSINE MAZOUAR</span><span>MORE THAN JUST TECH <span class="green">■</span></span></div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
